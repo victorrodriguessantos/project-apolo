@@ -1,0 +1,20 @@
+.bodyNavbar {
+    display: flex;
+    max-height: 70px;
+    justify-content: space-between;
+    background-color: #334155;
+    color: #E2E8F0;
+    align-items: center;
+    padding: 10px;
+}
+
+.bodyNavbar h1 {
+    font-size: large
+}
+
+.inputSearch {
+    width: 300px;
+    height: 20px;
+    padding: 10px;
+    border-radius: 12px;
+}
