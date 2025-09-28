@@ -8,7 +8,7 @@ function Navbar() {
                 <input 
                 className={Styles.inputSearch}
                 type-="search" 
-                placeholder="Buscar jogo"/>
+                placeholder="Buscar Carta"/>
                 <h1>Seja bem vindo!</h1>
             </nav>
         </div>

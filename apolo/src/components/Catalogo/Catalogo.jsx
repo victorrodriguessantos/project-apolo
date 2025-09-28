@@ -5,20 +5,21 @@ import axios from "axios";
 
 function Catalogo() {
 
-    const [games, setGames] = useState([]);
+    const [cards, setCard] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect( () => {
-        axios.get("https://hydralinks.cloud/sources/xatab.json")
+        axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php")
         .then(
             (response) => {
-                setGames(response.data.downloads);
-                console.log(response.data.dowmnloads);
+                setCard(response.data.data);
+                console.log(data.data);
                 setLoading(false);
             }
         ).catch((
             error) => {
             console.error(error);
+            setLoading(false);
         });
     },[]);
 
@@ -27,13 +28,18 @@ function Catalogo() {
     }
 
     return (
-        <div>
-            {games.map((game, index) => (
-            <div key={index} className={Styles.card}>
-                <h2>{game.title}</h2>
+        
+        <div className={Styles.containerCard}>
+            {cards.slice(0, 20).map((card) => (
+                <div className={Styles.card}>
+                    <h1>{card.name}</h1>
+                    <img src={card.card_images[0].image_url} />
+                    <div className={Styles.cardInfo}> 
+                        <p className={Styles.cardtype}>{card.type}</p>
+                        <p className={Styles.cardHumanread}>{card.humanReadableCardType}</p>
+                    </div>  
             </div>
             ))}
-            <h1>Teste</h1>
         </div>
         );
 
