@@ -71,3 +71,18 @@ body {
   max-width: 40%;
   min-width: 40%;
 }
+
+.pagination {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 10px;
+}
+
+.pagination button {
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}

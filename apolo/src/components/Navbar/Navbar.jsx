@@ -1,15 +1,4 @@
 import Styles from "./Navbar.module.css";
-import React, { useState } from "react";
-import Catalogo from "../Catalogo/Catalogo";
-
-const SearchCard = () => {
-    const [searchTerm, setSearchTerm] = useState("");
-    const items = Catalogo.cards;
-    const filteredItems = items.filter((item) => 
-        item.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-
-}
 
 function Navbar({ searchTerm, setSearchTerm }) {
   return (
