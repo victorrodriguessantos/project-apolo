@@ -7,6 +7,8 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedArchetype, setSelectedArchetype] = useState("");
+  const [selectedRarity, setSelectedRarity] = useState("");
 
   useEffect(() => {
     axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php")
@@ -22,8 +24,23 @@ function App() {
 
   return (
     <>
-      <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      {loading ? <p>Carregando...</p> : <Catalogo cards={cards} searchTerm={searchTerm} />}
+      <Navbar
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        cards={cards}
+        selectedArchetype={selectedArchetype}
+        setSelectedArchetype={setSelectedArchetype}
+        selectedRarity={selectedRarity}
+        setSelectedRarity={setSelectedRarity}
+      />
+      {loading ? <p>Carregando...</p> : (
+        <Catalogo
+          cards={cards}
+          searchTerm={searchTerm}
+          selectedArchetype={selectedArchetype}
+          selectedRarity={selectedRarity}
+        />
+      )}
     </>
   );
 }
